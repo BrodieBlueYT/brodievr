@@ -1,32 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Brodie VR</title>
-
-  <style>
-    body {
-      background: black;
-      color: white;
-      text-align: center;
-      font-family: Arial;
-      margin-top: 100px;
-    }
-
-    button {
-      padding: 15px;
-      font-size: 20px;
-    }
-  </style>
+  <title>VR Game Config</title>
 </head>
+<body style="background:black;color:white;font-family:Arial;text-align:center;">
 
-<body>
+<h1>VR Game Config</h1>
+<p>Photon settings for the game</p>
 
-<h1>Brodie VR</h1>
-<p>My Gorilla Tag fan game</p>
+<pre id="data">Loading...</pre>
 
-<button onclick="alert('Download coming soon!')">
-Download
-</button>
+<script>
+fetch("config.json")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("data").innerText =
+      "Photon App ID: " + data.photonAppId;
+  });
+</script>
 
 </body>
 </html>
